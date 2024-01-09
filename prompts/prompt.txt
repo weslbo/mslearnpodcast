@@ -16,5 +16,7 @@ We're going to create a podcast, based on the below text.
 - Do not add breaks to the podcast
 - Every paragraph should be enclosed by a <voice> and </voice> element.
 - The output should be about 7000 words.
+- Do not include exercises.
+- When discussing bullet points, add a bit more context.
 ---
 {{content}}

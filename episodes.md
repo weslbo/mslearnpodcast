@@ -28,3 +28,22 @@
 - https://learn.microsoft.com/en-us/training/modules/monitor-app-performance/
 - https://learn.microsoft.com/en-us/training/modules/develop-for-azure-cache-for-redis/
 - https://learn.microsoft.com/en-us/training/modules/develop-for-storage-cdns/
+
+## Episodes for PL-300:
+- https://learn.microsoft.com/en-us/training/modules/data-analytics-microsoft/
+- https://learn.microsoft.com/en-us/training/modules/get-started-with-power-bi/
+- https://learn.microsoft.com/en-us/training/modules/get-data/
+- https://learn.microsoft.com/en-us/training/modules/clean-data-power-bi/
+- https://learn.microsoft.com/en-us/training/modules/design-model-power-bi/
+- https://learn.microsoft.com/en-us/training/modules/dax-power-bi-add-measures/
+- https://learn.microsoft.com/en-us/training/modules/dax-power-bi-add-calculated-tables/
+- https://learn.microsoft.com/en-us/training/modules/dax-power-bi-time-intelligence/
+- https://learn.microsoft.com/en-us/training/modules/optimize-model-power-bi/
+- https://learn.microsoft.com/en-us/training/modules/power-bi-effective-reports/
+- https://learn.microsoft.com/en-us/training/modules/power-bi-effective-filters/
+- https://learn.microsoft.com/en-us/training/modules/power-bi-effective-user-experience/
+- https://learn.microsoft.com/en-us/training/modules/perform-analytics-power-bi/
+- https://learn.microsoft.com/en-us/training/modules/create-manage-workspaces-power-bi/
+- https://learn.microsoft.com/en-us/training/modules/manage-datasets-power-bi/
+- https://learn.microsoft.com/en-us/training/modules/create-dashboards-power-bi/
+- https://learn.microsoft.com/en-us/training/modules/row-level-security-power-bi/

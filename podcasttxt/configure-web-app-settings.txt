@@ -1,0 +1,75 @@
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+<voice name="en-US-BrianNeural">Welcome to the Microsoft Learn Podcast. I'm your host, Brian, and today we have a special guest with us. Andrew, why don't you introduce yourself?</voice>
+
+<voice name="en-US-AndrewNeural">Thanks, Brian. I'm Andrew, and I work for Contoso. I'm excited to be here and talk about configuring application settings in App Service.</voice>
+
+<voice name="en-US-BrianNeural">Great to have you, Andrew. So let's start with the basics. In App Service, what are app settings?</voice>
+
+<voice name="en-US-AndrewNeural">App settings are variables passed as environment variables to the application code. They can be accessed by navigating to your app's management page and selecting Configuration &gt; Application Settings.</voice>
+
+<voice name="en-US-BrianNeural">That's helpful. How are app settings different for ASP.NET and ASP.NET Core developers?</voice>
+
+<voice name="en-US-AndrewNeural">For ASP.NET and ASP.NET Core developers, setting app settings in App Service is similar to setting them in &lt;appSettings&gt; in Web.config or appsettings.json. However, the values in App Service override the ones in Web.config or appsettings.json.</voice>
+
+<voice name="en-US-BrianNeural">That's good to know. So you can keep development settings in Web.config or appsettings.json and production secrets in App Service?</voice>
+
+<voice name="en-US-AndrewNeural">Exactly. You can keep your local MySQL password in Web.config or appsettings.json, and your Azure MySQL database password in App Service. This way, the same code uses development settings when you debug locally and production secrets when deployed to Azure.</voice>
+
+<voice name="en-US-BrianNeural">That's a useful feature. Are app settings encrypted when stored?</voice>
+
+<voice name="en-US-AndrewNeural">Yes, app settings are always encrypted when stored. They are encrypted-at-rest to ensure the security of your sensitive information.</voice>
+
+<voice name="en-US-BrianNeural">That's great to hear. Now, let's talk about adding and editing app settings. How can we do that?</voice>
+
+<voice name="en-US-AndrewNeural">To add a new app setting, you can select "New application setting" and specify the setting name and value. If you're using deployment slots, you can also specify if the setting is swappable or not. To edit a setting, simply select the "Edit" button on the right side.</voice>
+
+<voice name="en-US-BrianNeural">And once we're done adding or editing settings, what do we need to do?</voice>
+
+<voice name="en-US-AndrewNeural">After making the changes, don't forget to select "Update" and then "Save" back in the Configuration page to apply the changes to your app.</voice>
+
+<voice name="en-US-BrianNeural">Got it. Now, what if we want to add or edit app settings in bulk?</voice>
+
+<voice name="en-US-AndrewNeural">If you want to add or edit app settings in bulk, you can select the "Advanced edit" button. This allows you to enter the app settings in JSON format, with each setting having a name, value, and slotSetting (which specifies if the setting is tied to a deployment slot or not).</voice>
+
+<voice name="en-US-BrianNeural">That's a handy feature for managing multiple settings at once. Now, let's move on to connection strings. How are they different from app settings?</voice>
+
+<voice name="en-US-AndrewNeural">Connection strings are used to store database connection information. While app settings can be used for this purpose, it's better to use connection strings because they require special formatting in the variable keys to access the values. Connection strings are always encrypted when stored.</voice>
+
+<voice name="en-US-BrianNeural">That makes sense. Can you explain how to add and edit connection strings?</voice>
+
+<voice name="en-US-AndrewNeural">Adding and editing connection strings follow the same principles as app settings. You can select "New connection string" to add a new one, and specify the name, value, type (e.g., SQLServer, PostgreSQL), and slotSetting. To edit a connection string, select the "Edit" button on the right side.</voice>
+
+<voice name="en-US-BrianNeural">Thanks for explaining that, Andrew. Now, let's move on to configuring general settings. What can we do in this section?</voice>
+
+<voice name="en-US-AndrewNeural">In the General settings section, you can configure some common settings for your app. This includes the software stack to run the app, platform settings like bitness and WebSocket protocol, debugging options, and incoming client certificates for mutual authentication.</voice>
+
+<voice name="en-US-BrianNeural">That's a wide range of settings. Can you explain a bit more about each of them?</voice>
+
+<voice name="en-US-AndrewNeural">Sure. The software stack setting allows you to specify the language and SDK versions for your app. The platform settings include options like bitness (32-bit or 64-bit), WebSocket protocol for technologies like ASP.NET SignalR or socket.io, Always On to keep the app loaded even without traffic, managed pipeline version for IIS compatibility, HTTP version for HTTP/2 support, and ARR affinity for routing client requests to the same instance.</voice>
+
+<voice name="en-US-BrianNeural">That's a comprehensive set of options. Now, let's talk about enabling diagnostic logging. How can we do that?</voice>
+
+<voice name="en-US-AndrewNeural">Enabling diagnostic logging is important for monitoring and debugging your app. There are different types of logging available, such as application logging, web server logging, detailed error logging, failed request tracing, and deployment logging. You can enable these logs in the Azure portal under the App Service logs section.</voice>
+
+<voice name="en-US-BrianNeural">That's helpful. Can you explain each type of logging and where the logs are stored?</voice>
+
+<voice name="en-US-AndrewNeural">Certainly. Application logging logs messages generated by your application code, and they can be stored in the App Service file system or Azure Storage blobs. Web server logging captures raw HTTP request data and can be stored in the App Service file system or Azure Storage blobs. Detailed error logging saves copies of error pages for HTTP errors. Failed request tracing provides detailed tracing information on failed requests and is stored in the App Service file system. Deployment logging helps determine why a deployment failed and happens automatically.</voice>
+
+<voice name="en-US-BrianNeural">That's a comprehensive set of logging options. Now, let's move on to configuring security certificates. How can we secure our app using certificates?</voice>
+
+<voice name="en-US-AndrewNeural">To secure information transmitted between your app and the customer, you can create, upload, or import a private or public certificate into App Service. There are different options available, such as creating a free App Service managed certificate, purchasing an App Service certificate, importing a certificate from Key Vault, uploading a private certificate, or uploading a public certificate.</voice>
+
+<voice name="en-US-BrianNeural">That's a wide range of options. Can you explain the requirements for using a private certificate in App Service?</voice>
+
+<voice name="en-US-AndrewNeural">Certainly. If you want to use a private certificate in App Service, it must be exported as a password-protected PFX file, encrypted using triple DES. The private key should be at least 2048 bits long, and the certificate should contain all intermediate certificates in the chain. Additionally, the certificate should have an Extended Key Usage for server authentication and be signed by a trusted certificate authority.</voice>
+
+<voice name="en-US-BrianNeural">That's good to know. Now, let's talk about the different options for adding certificates. Can you explain each option?</voice>
+
+<voice name="en-US-AndrewNeural">Certainly. The free App Service managed certificate is a turn-key solution for securing your custom domain in App Service. It's fully managed by App Service and automatically renewed. The App Service certificate is a private certificate managed by Azure, providing automated certificate management and renewal options. Importing a certificate from Key Vault is useful if you already use Azure Key Vault to manage your certificates. Uploading a private certificate allows you to use a certificate from a third-party provider. And uploading a public certificate is useful if you need to access remote resources in your code.</voice>
+
+<voice name="en-US-BrianNeural">That's a comprehensive set of options for securing our apps. Thank you, Andrew, for sharing your knowledge on configuring application settings, enabling logging, and managing certificates in App Service.</voice>
+
+<voice name="en-US-AndrewNeural">You're welcome, Brian. It was a pleasure to be here and share my insights. I hope this information helps our listeners in their journey with App Service.</voice>
+
+<voice name="en-US-BrianNeural">And thank you to our listeners for tuning in to the Microsoft Learn Podcast. We hope you found this episode informative and valuable. Stay tuned for more episodes covering various topics in the Microsoft ecosystem. Until next time!</voice>
+</speak>

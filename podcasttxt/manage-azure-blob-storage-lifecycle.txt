@@ -1,0 +1,59 @@
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Welcome to the Microsoft Learn Podcast, the show where we dive deep into the world of technology and explore the latest advancements in the industry. I'm your host, Brian, and today we have a special guest joining us. Andrew, why don't you introduce yourself?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Thanks, Brian. I'm Andrew, and I work for Contoso. I'm excited to be here and talk about Azure Blob storage lifecycle management.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Great to have you, Andrew. So let's start by discussing the different access tiers in Azure Blob storage. Can you explain how each tier is optimized?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Certainly, Brian. Azure storage offers four access tiers: Hot, Cool, Cold, and Archive. The Hot tier is optimized for frequently accessed data, while the Cool tier is for infrequently accessed data stored for at least 30 days. The Cold tier is also for infrequently accessed data, but it has a minimum storage duration of 90 days. Finally, the Archive tier is for rarely accessed data stored for at least 180 days with flexible latency requirements.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's interesting, Andrew. So, can you set the access tier for a blob at the account level?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Actually, Brian, you can only set the Hot and Cool access tiers at the account level. The Archive access tier can only be set at the blob level.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">I see. And what about the storage costs and availability for each tier?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">The Cool tier has slightly lower availability compared to the Hot tier, but it still has high durability, retrieval latency, and throughput characteristics. The Archive tier, on the other hand, offers the lowest storage costs but also the highest access costs and latency.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's good to know. Now, let's talk about managing the data lifecycle in Azure Blob storage. How can we create and implement a lifecycle policy?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Azure Blob storage lifecycle management provides a rule-based policy for General Purpose v2 and Blob storage accounts. With this policy, you can transition your data to the appropriate access tiers or expire it at the end of its lifecycle. You can define rules to transition blobs to cooler storage tiers, delete blobs at the end of their lifecycles, and apply rules at the storage account or container level.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That sounds like a powerful feature. Can you give us an example of how we can use lifecycle management to transition data to cooler tiers?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Certainly, Brian. Let's say we have a scenario where data is frequently accessed during the early stages of its lifecycle, but only occasionally after two weeks. Beyond the first month, the data is rarely accessed. In this case, we can use lifecycle management policy rules to move the data to cooler tiers as it ages. For example, we can set a rule to transition the data from the Hot tier to the Cool tier after 30 days, and then to the Archive tier after 90 days.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's a great way to optimize storage costs. Now, let's talk about rehydrating blob data from the archive tier. Why would we need to do that?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">When a blob is in the archive access tier, it's considered offline and cannot be read or modified. So, if we need to access or modify the data in an archived blob, we have to rehydrate it to an online tier, such as the Hot or Cool tier.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">I see. And how can we rehydrate a blob from the archive tier?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">There are two options for rehydrating a blob from the archive tier. The first option is to copy the archived blob to an online tier using the Copy Blob or Copy Blob from URL operation. The second option is to change the blob's access tier to an online tier using the Set Blob Tier operation.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's good to know. Is there anything we need to consider when rehydrating a blob?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Yes, Brian. Rehydrating a blob from the archive tier can take several hours to complete, so it's important to plan accordingly. Microsoft recommends rehydrating larger blobs for optimal performance and avoiding concurrent rehydration of multiple small blobs, as it might require extra time.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Got it. And is there a way to prioritize the rehydration process?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Yes, there is. When rehydrating a blob, you can set the rehydration priority using the x-ms-rehydrate-priority header. The options are Standard priority, which takes up to 15 hours, and High priority, which can complete in under one hour for objects under 10 GB in size.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's helpful. Now, let's do a quick knowledge check to see if our listeners have been paying attention.</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Sure, Brian. Let's go ahead.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Question 1: Which access tier is considered to be offline and can't be read or modified?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">The answer is the Archive tier.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Question 2: Which storage account types support lifecycle policies?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">The answer is General Purpose v2 and Blob storage accounts.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Great job, Andrew. Now, let's wrap up this episode.</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Thank you, Brian. It was a pleasure discussing Azure Blob storage lifecycle management with you.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">And thank you, Andrew, for sharing your insights. And thank you to our listeners for tuning in to the Microsoft Learn Podcast. We hope you found this episode informative and valuable. Stay tuned for more exciting topics in the world of technology. Until next time, happy learning!</voice>
+</speak>
