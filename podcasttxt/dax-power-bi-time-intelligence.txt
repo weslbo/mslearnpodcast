@@ -1,0 +1,55 @@
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Welcome to the Microsoft Learn Podcast, your go-to source for all things related to Microsoft technologies. I'm your host, Brian, and today we have a special guest with us. Andrew, why don't you introduce yourself?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Thanks, Brian. I'm Andrew, and I work for Contoso. I specialize in time intelligence calculations using Data Analysis Expressions (DAX).</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's great, Andrew. Today, we're going to dive into the topic of time intelligence in DAX calculations. Can you explain what time intelligence means in this context?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Certainly, Brian. Time intelligence in DAX calculations refers to modifying the filter context for date filters. It involves performing calculations over dates, months, quarters, or years to answer time-related questions.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's interesting. Can you give us an example of how time intelligence calculations are used in a real-world scenario?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Sure. Let's take the example of Adventure Works, a company with a financial year that begins on July 1 and ends on June 30 of the following year. They want to analyze their monthly revenue and year-to-date (YTD) revenue. Time intelligence calculations can help them determine the accumulation of revenue for the year, quarter, or month, compare revenue to the same period last year, calculate the growth in revenue over the same period last year, and even analyze the number of new customers in each month.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's really useful. So, how does DAX help with these time intelligence calculations?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">DAX includes several time intelligence functions that simplify the task of modifying date filter context. These functions allow you to perform calculations like year-to-date (YTD), month-to-date (MTD), quarter-to-date (QTD), and more. They save you from writing complex calculations using the CALCULATE function.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That sounds convenient. Are there any requirements for using these time intelligence functions in DAX?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Yes, there is a prerequisite model requirement. You need to have at least one date table in your model. The date table must have a column of data type Date or date/time, contain unique values, not have any BLANKs or missing dates, and span full years. Additionally, you need to indicate the date table as a date table in your model.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Got it. So, let's talk about some of the specific time intelligence functions in DAX. Can you explain the DATESYTD function?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Certainly. The DATESYTD function returns a single-column table that contains dates for the year-to-date (YTD) in the current filter context. It's one of the functions in the group of DAX time intelligence functions that are concerned with summarizations over time. There are also functions like DATESMTD and DATESQTD for month-to-date (MTD) and quarter-to-date (QTD) calculations.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's helpful. What about the TOTALYTD function?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">The TOTALYTD function evaluates an expression for YTD in the current filter context. It's similar to the DATESYTD function, but it allows you to pass in multiple filter expressions. There are also equivalent functions like TOTALQTD and TOTALMTD for quarter-to-date (QTD) and month-to-date (MTD) calculations.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">I see. And what about the DATESBETWEEN and DATESINPERIOD functions?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">The DATESBETWEEN function returns a table that contains a column of dates between a given start date and end date. It's useful for creating custom date ranges. The DATESINPERIOD function, on the other hand, returns a table that contains a column of dates for a specified number of intervals, starting from a given start date.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Thanks for explaining those functions, Andrew. Now, let's talk about comparisons over time. What functions are available for shifting time periods?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">There are several functions for shifting time periods. The DATEADD function returns a table with dates shifted forward or backward by a specified number of intervals. The PARALLELPERIOD function returns a table with dates that represent a period parallel to the dates in the current filter context, shifted forward or backward. The SAMEPERIODLASTYEAR function returns a table with dates shifted one year back in time. There are also helper functions like NEXTDAY, NEXTMONTH, NEXTQUARTER, NEXTYEAR, PREVIOUSDAY, PREVIOUSMONTH, PREVIOUSQUARTER, and PREVIOUSYEAR for navigating backward or forward for specific time periods.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's a comprehensive set of functions. Can you give us an example of how these functions can be used?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Certainly. Let's take the example of calculating revenue for the prior year. We can use the SAMEPERIODLASTYEAR function to shift the dates one year back and then calculate the revenue for that period. We can also use the function to calculate the year-over-year growth in revenue.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's really useful. Are there any other time intelligence calculations we should know about?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Yes, there are a couple more. The FIRSTDATE and LASTDATE functions return the first and last date in the current filter context for a specified column of dates. These functions can be used to calculate new occurrences, such as the number of new customers in a time period. You can also perform snapshot calculations, where you summarize snapshot values across dimensions other than date.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's great. Can you give us an example of how these calculations can be used?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Sure. Let's say we want to count the number of new customers in a time period. We can use the FIRSTDATE and LASTDATE functions to define the time period, and then calculate the count of distinct customers who made their first purchase in that period. We can also perform snapshot calculations, like summarizing inventory stock levels for the last recorded date in each time period.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's really helpful, Andrew. Thank you for sharing your expertise on time intelligence calculations in DAX. Do you have any final thoughts or tips for our listeners?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">My pleasure, Brian. My final tip would be to make sure you have a proper date table in your model and familiarize yourself with the different time intelligence functions available in DAX. They can save you a lot of time and effort in performing time-related calculations. And as always, practice and experimentation are key to mastering these concepts.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Thank you, Andrew, for joining us today and sharing your insights. And thank you to our listeners for tuning in to the Microsoft Learn Podcast. We hope you found this episode on time intelligence in DAX calculations informative and valuable. Stay tuned for more episodes on various Microsoft technologies. Until next time, happy learning!</voice>
+</speak>

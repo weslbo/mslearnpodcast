@@ -1,0 +1,71 @@
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Welcome to the Microsoft Learn Podcast, the podcast where we explore the world of technology and dive deep into Microsoft products and services. I'm your host, Brian, and today we have a special guest with us, Andrew from Contoso. Andrew, why don't you introduce yourself?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Thanks, Brian. I'm Andrew, and I work for Contoso. I'm excited to be here today to talk about Microsoft Power BI.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Great to have you, Andrew. So let's start by talking about the different parts of Power BI. Can you give us an overview?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Absolutely, Brian. Power BI consists of three main elements: Power BI Desktop, the Power BI service, and mobile Power BI apps. These three elements work together to help users create, share, and consume business insights.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's interesting. So how does Power BI match different roles within an organization?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Well, Brian, how someone uses Power BI can vary depending on their role. For example, one person might view reports and dashboards in the Power BI service, while another might make extensive use of Power BI Desktop to create reports. And someone in sales might mainly use the Power BI mobile app to monitor progress on sales quotas. It really depends on what each person needs to achieve in their role.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">I see. So each part of Power BI serves a different purpose. Can you give us some examples?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Definitely, Brian. Power BI Desktop is used to create semantic models and visualizations, while the Power BI service brings together reports, dashboards, and tools for easy distribution and management of Power BI content. And the mobile apps allow users to view and interact with shared dashboards and reports on the go.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's a great breakdown, Andrew. Now, let's talk about downloading Power BI Desktop. How can our listeners get started?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">To download Power BI Desktop, you can either get it from the web or as an app from the Microsoft Store on the Windows tab. The Windows Store app will automatically stay updated, while the web download requires manual updates periodically.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Thanks for the information, Andrew. Now, let's move on to signing in to the Power BI service. How can our listeners create an account?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">To sign in to the Power BI service, you'll need an account. You can get a free trial by going to app.powerbi.com and signing up with your email address. For detailed steps on setting up an account, you can check out the "Sign in to Power BI service" documentation.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Now that we have an overview of Power BI and how to get started, let's talk about the flow of work in Power BI. Can you walk us through it, Andrew?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Certainly, Brian. The common flow of work in Power BI starts with creating a report in Power BI Desktop. Once the report is created, it can be published to the Power BI service and shared with others. Users can then view and interact with the shared reports and dashboards in the Power BI Mobile apps.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That sounds like a seamless process. Now, let's dive into the building blocks of Power BI. Can you explain what they are?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Of course, Brian. In Power BI, reports consist of visualizations and semantic models created with Power BI Desktop. Dashboards, on the other hand, consist of tiles from report visualizations created in the Power BI service.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Visualizations and semantic models are key components of Power BI. Can you tell us more about them?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Certainly, Brian. Visualizations are visual representations of data, such as charts or maps, that help present data in a meaningful way. Semantic models, on the other hand, are collections of data that Power BI uses to create visualizations. They can be based on a single table or a combination of multiple sources.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's fascinating. Now, let's talk about reports. What are they and how do they fit into Power BI?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">In Power BI, a report is a collection of visualizations on one or more pages. Reports allow users to gather and organize their visualizations onto one page or more, depending on their needs. It's a way to combine related data and present it in a cohesive manner.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">I see. And what about dashboards? How do they differ from reports?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Dashboards are a selected group of visuals that provide quick and important insights into the data or story being presented. They are limited to a single page and allow users to follow a visual to the underlying report. Dashboards provide a focused view of the most relevant information.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's a great way to summarize it, Andrew. Now, let's talk about tiles. What role do they play in Power BI?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Tiles are individual visualizations on a dashboard. They are the rectangular boxes that hold visuals. Users can arrange and customize tiles on a dashboard to create a personalized view of the data. Interacting with one tile can filter the other visuals accordingly.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's a powerful feature. Now, let's bring it all together. Can you summarize the building blocks of Power BI for our listeners?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Absolutely, Brian. Power BI Desktop is used to build semantic models and create reports. The Power BI service brings together reports, dashboards, and tools for easy distribution and management of Power BI content. And the mobile apps allow users to access and interact with shared dashboards and reports on their mobile devices.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Thank you for that comprehensive overview, Andrew. Now, let's move on to exploring and using the Power BI service. Can you walk us through the experience?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Certainly, Brian. In the Power BI service, users can explore built-in sample reports to get familiar with the platform. These samples are bundles of dashboards, semantic models, and reports that can be used as a starting point. Users can also explore template apps, which provide a customized and clutter-free experience for consuming reports and dashboards.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's a great way to get started, Andrew. Now, let's talk about data refresh in the Power BI service. How can users ensure their data is up to date?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Users can manually refresh or schedule data refreshes in the Power BI service. This ensures that the semantic models are updated with the latest data. Users can set the refresh schedule that meets their needs, with up to eight refreshes per day.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">That's a useful feature for keeping data up to date. Well, Andrew, we've covered a lot of ground today. Is there anything else you'd like to add?</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Just that Power BI is a powerful tool that can help organizations transform their data into actionable insights. Whether you're a beginner or a Power BI veteran, there's always something new to learn and explore. I encourage everyone to dive in and see how Power BI can benefit their organization.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">Thank you, Andrew, for sharing your insights on Power BI. It was a pleasure having you on the podcast.</voice>
+
+  <voice name="en-US-AndrewNeural" gender="male" variant="2">Thank you, Brian. It was my pleasure to be here.</voice>
+
+  <voice name="en-US-BrianNeural" gender="male" variant="1">And thank you to our listeners for tuning in to the Microsoft Learn Podcast. We hope you found this episode informative and helpful. Stay tuned for more episodes where we explore the world of technology and Microsoft products and services. Until next time, happy learning!</voice>
+</speak>

@@ -29,6 +29,12 @@ def importLearnModuleText(url):
                     
                     div = soupArticle.find(id="unit-inner-section")
                     if div:
+                        skipUnit = False
+
+                        for h1 in div.find_all("h1", class_="margin-right-xxl-desktop"):
+                            if h1.get_text().startswith("Exercise") or h1.get_text().startswith("Check your knowledge") or h1.get_text().startswith("Summary"):
+                                skipUnit = True
+
                         # Remove <ul> elements from div if it has a metadata class
                         for ul in div.find_all("ul", class_="metadata"):
                             ul.decompose()
@@ -41,15 +47,19 @@ def importLearnModuleText(url):
                         for u in div.find_all(["li"]):
                             u.string = "- " + u.get_text()
                         
+                        
                         txtContent = div.get_text()
 
-                        file.write(str(txtContent))
+                        if skipUnit:
+                            print(f"Skipping unit {absolute_url}")
+                        else:
+                            file.write(str(txtContent))
                     else:
                         print(f"Failed to find div with id='unit-inner-section' from page {absolute_url}")
                 else:
                     print(f"Failed to retrieve the page: {absolute_url}")
 
-def createPodcastFromText(url):
+def createPodcastFromText(url, nroftokens=10000):
     client = AzureOpenAI(azure_endpoint="https://wedebolsaiopenai2.openai.azure.com/", api_version="2023-07-01-preview", api_key=os.getenv("OPENAI_API_KEY"))
 
     filename = "modules/" + url.rsplit('/', 2)[-2] + ".txt"
@@ -70,7 +80,7 @@ def createPodcastFromText(url):
         model="gpt-35-turbo-16k",
         messages = message_text,
         temperature=0.1,
-        max_tokens=9500,
+        max_tokens=nroftokens,
         top_p=0.95,
         frequency_penalty=0,
         presence_penalty=0,
@@ -147,6 +157,11 @@ def main():
     else:
         speechonly = False
     
+    if isinstance(sys.argv[-1], int):
+        nroftokens = sys.argv[-1]
+    else:
+        nroftokens = 10000
+        
     print(f"Start to create a podcast for url: {url}")
 
     if not speechonly:
@@ -154,7 +169,7 @@ def main():
         importLearnModuleText(url)
 
         print("Creating podcast speech ml (2/3)")
-        createPodcastFromText(url)
+        createPodcastFromText(url, nroftokens)
 
     print("Creating audio (3/3)")
     createAudio(url)
