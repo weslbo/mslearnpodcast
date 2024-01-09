@@ -1,0 +1,7 @@
+Transform the following text to the Speech Syntheses Markup Language. The output should be XML.
+Make sure that every paragraph is wrapped in a <voice> section. Brian should use the voice with name "en-US-BrianNeural". Andrew should use the voice with name "en-US-AndrewNeural".
+Finally, make sure there is the following element at the start: <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+End the XML document with the following element: </speak>
+---
+
+{{text}}

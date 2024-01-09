@@ -1,28 +1,30 @@
-https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-app-service/
-https://learn.microsoft.com/en-us/training/modules/configure-web-app-settings/
-https://learn.microsoft.com/en-us/training/modules/scale-apps-app-service/
-https://learn.microsoft.com/en-us/training/modules/understand-app-service-deployment-slots/
-https://learn.microsoft.com/en-us/training/modules/explore-azure-functions/
-https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/
-https://learn.microsoft.com/en-us/training/modules/explore-azure-blob-storage/
-https://learn.microsoft.com/en-us/training/modules/manage-azure-blob-storage-lifecycle/
-https://learn.microsoft.com/en-us/training/modules/work-azure-blob-storage/
-https://learn.microsoft.com/en-us/training/modules/explore-azure-cosmos-db/
-https://learn.microsoft.com/en-us/training/modules/work-with-cosmos-db/
-https://learn.microsoft.com/en-us/training/modules/publish-container-image-to-azure-container-registry/
-https://learn.microsoft.com/en-us/training/modules/create-run-container-images-azure-container-instances/
-https://learn.microsoft.com/en-us/training/modules/implement-azure-container-apps/
-https://learn.microsoft.com/en-us/training/modules/explore-microsoft-identity-platform/
-https://learn.microsoft.com/en-us/training/modules/implement-authentication-by-using-microsoft-authentication-library/
-https://learn.microsoft.com/en-us/training/modules/implement-shared-access-signatures/
-https://learn.microsoft.com/en-us/training/modules/microsoft-graph/
-https://learn.microsoft.com/en-us/training/modules/implement-azure-key-vault/
-https://learn.microsoft.com/en-us/training/modules/implement-managed-identities/
-https://learn.microsoft.com/en-us/training/modules/implement-azure-app-configuration/
-https://learn.microsoft.com/en-us/training/modules/explore-api-management/
-https://learn.microsoft.com/en-us/training/modules/azure-event-grid/
-https://learn.microsoft.com/en-us/training/modules/azure-event-hubs/
-https://learn.microsoft.com/en-us/training/modules/discover-azure-message-queue/
-https://learn.microsoft.com/en-us/training/modules/monitor-app-performance/
-https://learn.microsoft.com/en-us/training/modules/develop-for-azure-cache-for-redis/
-https://learn.microsoft.com/en-us/training/modules/develop-for-storage-cdns/
+## Episodes for AZ-204:
+
+- https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-app-service/
+- https://learn.microsoft.com/en-us/training/modules/configure-web-app-settings/
+- https://learn.microsoft.com/en-us/training/modules/scale-apps-app-service/
+- https://learn.microsoft.com/en-us/training/modules/understand-app-service-deployment-slots/
+- https://learn.microsoft.com/en-us/training/modules/explore-azure-functions/
+- https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/
+- https://learn.microsoft.com/en-us/training/modules/explore-azure-blob-storage/
+- https://learn.microsoft.com/en-us/training/modules/manage-azure-blob-storage-lifecycle/
+- https://learn.microsoft.com/en-us/training/modules/work-azure-blob-storage/
+- https://learn.microsoft.com/en-us/training/modules/explore-azure-cosmos-db/
+- https://learn.microsoft.com/en-us/training/modules/work-with-cosmos-db/
+- https://learn.microsoft.com/en-us/training/modules/publish-container-image-to-azure-container-registry/
+- https://learn.microsoft.com/en-us/training/modules/create-run-container-images-azure-container-instances/
+- https://learn.microsoft.com/en-us/training/modules/implement-azure-container-apps/
+- https://learn.microsoft.com/en-us/training/modules/explore-microsoft-identity-platform/
+- https://learn.microsoft.com/en-us/training/modules/implement-authentication-by-using-microsoft-authentication-library/
+- https://learn.microsoft.com/en-us/training/modules/implement-shared-access-signatures/
+- https://learn.microsoft.com/en-us/training/modules/microsoft-graph/
+- https://learn.microsoft.com/en-us/training/modules/implement-azure-key-vault/
+- https://learn.microsoft.com/en-us/training/modules/implement-managed-identities/
+- https://learn.microsoft.com/en-us/training/modules/implement-azure-app-configuration/
+- https://learn.microsoft.com/en-us/training/modules/explore-api-management/
+- https://learn.microsoft.com/en-us/training/modules/azure-event-grid/
+- https://learn.microsoft.com/en-us/training/modules/azure-event-hubs/
+- https://learn.microsoft.com/en-us/training/modules/discover-azure-message-queue/
+- https://learn.microsoft.com/en-us/training/modules/monitor-app-performance/
+- https://learn.microsoft.com/en-us/training/modules/develop-for-azure-cache-for-redis/
+- https://learn.microsoft.com/en-us/training/modules/develop-for-storage-cdns/

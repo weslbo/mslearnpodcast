@@ -1,0 +1,87 @@
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+<voice name="en-US-BrianNeural">Welcome to the Microsoft Learn Podcast! I'm your host, Brian, and today we have a special guest with us. Andrew, who works for Contoso, is here to talk about Azure App Service. Welcome, Andrew!</voice>
+
+<voice name="en-US-AndrewNeural">Thank you, Brian. I'm excited to be here and share my knowledge about Azure App Service.</voice>
+
+<voice name="en-US-BrianNeural">Great! So let's start by talking about what Azure App Service is. Can you give us an overview?</voice>
+
+<voice name="en-US-AndrewNeural">Sure, Brian. Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile backends. It supports multiple programming languages and can run on both Windows and Linux-based environments.</voice>
+
+<voice name="en-US-BrianNeural">That's interesting. I also heard that Azure App Service has built-in auto scale support. Can you tell us more about that?</voice>
+
+<voice name="en-US-AndrewNeural">Absolutely. With Azure App Service, you can easily scale up or down the resources of the underlying machine hosting your web app. This includes scaling the number of cores or the amount of RAM available. You can also scale out or in by increasing or decreasing the number of machine instances running your web app.</voice>
+
+<voice name="en-US-BrianNeural">That sounds convenient. What about continuous integration and deployment support?</voice>
+
+<voice name="en-US-AndrewNeural">Azure App Service provides out-of-the-box continuous integration and deployment with Azure DevOps Services, GitHub, Bitbucket, FTP, or a local Git repository. You can connect your web app with any of these sources, and App Service will automatically sync your code and any future changes into the web app.</voice>
+
+<voice name="en-US-BrianNeural">That's really helpful. I also noticed that Azure App Service has deployment slots. Can you explain what those are?</voice>
+
+<voice name="en-US-AndrewNeural">Certainly. Deployment slots are separate environments where you can deploy your web app instead of the default production slot. This is available in the Standard App Service Plan tier or better. Deployment slots have their own host names, and you can swap content and configurations between slots, including the production slot.</voice>
+
+<voice name="en-US-BrianNeural">That's a useful feature. I also heard that Azure App Service can host web apps on Linux. Can you tell us more about that?</voice>
+
+<voice name="en-US-AndrewNeural">Yes, App Service can host web apps natively on Linux for supported application stacks. It also supports running custom Linux containers, known as Web App for Containers. There are many built-in images for different languages and frameworks, such as Node.js, Java, PHP, Python, .NET, and Ruby. If your required runtime isn't supported, you can deploy it with a custom container.</voice>
+
+<voice name="en-US-BrianNeural">That's great to know. Are there any limitations to using App Service on Linux?</voice>
+
+<voice name="en-US-AndrewNeural">Yes, there are a few limitations. App Service on Linux isn't supported on the Shared pricing tier. The Azure portal only shows features that currently work for Linux apps, and the disk latency for content files stored in the built-in images is higher compared to the container filesystem. For heavy read-only access to content files, using a custom container is recommended.</voice>
+
+<voice name="en-US-BrianNeural">Thanks for clarifying that. Now let's talk about App Service plans. What exactly is an App Service plan?</voice>
+
+<voice name="en-US-AndrewNeural">An App Service plan is where your app runs in Azure App Service. It defines the compute resources for your web app. You can have multiple apps running on the same computing resources within an App Service plan. The plan specifies the operating system, region, number and size of VM instances, and the pricing tier.</voice>
+
+<voice name="en-US-BrianNeural">I see. So what are the different pricing tiers available for App Service plans?</voice>
+
+<voice name="en-US-AndrewNeural">There are a few categories of pricing tiers. The Shared compute tier includes Free and Shared plans, which run apps on the same Azure VM as other App Service apps. The Dedicated compute tier includes Basic, Standard, Premium, PremiumV2, and PremiumV3 plans, which run apps on dedicated Azure VMs. The Isolated tier includes Isolated and IsolatedV2 plans, which run on dedicated Azure VMs and provide network isolation.</voice>
+
+<voice name="en-US-BrianNeural">That's a good breakdown of the pricing tiers. Now, how does an app run and scale within an App Service plan?</voice>
+
+<voice name="en-US-AndrewNeural">In an App Service plan, an app runs on all the VM instances configured in the plan. If there are multiple apps in the same plan, they all share the same VM instances. The same applies to deployment slots. If you enable diagnostic logs, perform backups, or run WebJobs, they also use CPU cycles and memory on these VM instances. The App Service plan is the scale unit for the apps, so if the plan is configured to run multiple VM instances, all apps in the plan will run on all instances.</voice>
+
+<voice name="en-US-BrianNeural">That's good to know. What if an app needs more capabilities or features?</voice>
+
+<voice name="en-US-AndrewNeural">If an app needs more capabilities or features, you can scale up or down the App Service plan at any time by changing the pricing tier. If you want to isolate the compute resources for a specific app, you can move it to a separate App Service plan. This allows you to scale the app independently from other apps in the existing plan and allocate new resources for it.</voice>
+
+<voice name="en-US-BrianNeural">That's a useful option for managing resources. Now let's move on to deployment. How can we deploy an app to App Service?</voice>
+
+<voice name="en-US-AndrewNeural">There are both automated and manual deployment options available. For automated deployment, you can push your code directly from Azure DevOps Services, GitHub, or Bitbucket. App Service will handle the deployment process for you. For manual deployment, you can use Git, the Azure CLI, Zip deploy, or FTP/S to push your code to App Service.</voice>
+
+<voice name="en-US-BrianNeural">That's a good range of options. Can you explain how deployment slots can be used?</voice>
+
+<voice name="en-US-AndrewNeural">Certainly. Deployment slots are useful when deploying a new production build. With a Standard App Service Plan tier or better, you can deploy your app to a staging environment using a separate deployment slot. Once the app is tested and ready, you can swap the staging and production slots. This ensures a smooth transition and eliminates downtime.</voice>
+
+<voice name="en-US-BrianNeural">That's a great feature for managing deployments. Now let's move on to authentication and authorization in App Service. Can you tell us about the built-in support for authentication?</voice>
+
+<voice name="en-US-AndrewNeural">Absolutely. Azure App Service provides built-in authentication and authorization support, which allows you to sign in users and access data without writing a lot of code. It integrates with various identity providers, such as Microsoft, Facebook, Google, Twitter, and more. You can enable authentication with these providers and App Service will handle the authentication flow for you.</voice>
+
+<voice name="en-US-BrianNeural">That's really convenient. How does the authentication and authorization module work?</voice>
+
+<voice name="en-US-AndrewNeural">The authentication and authorization module runs in the same sandbox as your application code. It authenticates users and clients with the specified identity providers, validates and stores OAuth tokens, manages the authenticated session, and injects identity information into HTTP request headers. It can be configured using Azure Resource Manager settings or a configuration file, and no specific programming language or changes to your application code are required.</voice>
+
+<voice name="en-US-BrianNeural">That's impressive. Can you explain the authentication flow?</voice>
+
+<voice name="en-US-AndrewNeural">The authentication flow is the same for all providers, but it differs depending on whether you want to sign in with the provider's SDK or without it. Without the provider's SDK, the application delegates federated sign-in to App Service. With the provider's SDK, the application signs users in manually and submits the authentication token to App Service for validation. This applies to different types of apps, such as browser apps and browser-less apps like REST APIs or native mobile apps.</voice>
+
+<voice name="en-US-BrianNeural">That's a good distinction to make. What about authorization behavior?</voice>
+
+<voice name="en-US-AndrewNeural">In the Azure portal, you can configure App Service to allow unauthenticated requests or require authentication. Allowing unauthenticated requests defers authorization to your application code, while requiring authentication rejects any unauthenticated traffic. You can also configure the rejection to be a redirect action to one of the configured identity providers or return an HTTP 401 Unauthorized or HTTP 403 Forbidden response for all requests.</voice>
+
+<voice name="en-US-BrianNeural">That gives a lot of flexibility in handling authentication and authorization. Now, let's talk about networking features in App Service. How can we control inbound and outbound traffic?</voice>
+
+<voice name="en-US-AndrewNeural">By default, apps hosted in App Service are accessible through the internet and can reach internet-hosted endpoints. However, you can control inbound and outbound network traffic using various networking features. For multi-tenant App Service deployments, you can use features like access restrictions, service endpoints, and private endpoints. For single-tenant deployments using App Service Environment, you have additional options like hybrid connections and gateway-required virtual network integration.</voice>
+
+<voice name="en-US-BrianNeural">That's helpful for managing network traffic. Are there any limitations or considerations for outbound addresses?</voice>
+
+<voice name="en-US-AndrewNeural">Yes, the outbound addresses used by your app for making outbound calls are shared by all the apps running on the same worker VM family in the App Service deployment. If you need to know the outbound IP addresses currently used by your app, you can find them in the Azure portal or by using the Azure CLI command. It's important to consider these addresses when configuring any external services that require whitelisting or firewall rules.</voice>
+
+<voice name="en-US-BrianNeural">That's good to keep in mind. Now, let's move on to the exercise. Can you walk us through creating a static HTML web app using Azure Cloud Shell?</voice>
+
+<voice name="en-US-AndrewNeural">Certainly. In this exercise, you'll deploy a basic HTML+CSS site to Azure App Service using the Azure CLI command "az webapp up". You'll also learn how to update and redeploy the app. First, you'll need to download the sample app and set some variables. Then, you can create the web app and later update it with the changes you want.</voice>
+
+<voice name="en-US-BrianNeural">That sounds like a hands-on exercise. Unfortunately, we're out of time for today. Thank you, Andrew, for joining us and sharing your insights on Azure App Service.</voice>
+
+<voice name="en-US-AndrewNeural">You're welcome, Brian. It was a pleasure being here. If anyone has further questions, feel free to reach out.</voice>
+
+<voice name="en-US-BrianNeural">And thank you to our listeners for tuning in to the Microsoft Learn Podcast. Stay tuned for more episodes where we explore different topics and technologies. Until next time, happy learning!</voice>
+</speak>
