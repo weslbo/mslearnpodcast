@@ -1,0 +1,60 @@
+We're going to create a podcast
+- Include an introduction into the topic where the both the interviewer and the guest introduce themselves.
+- The interviewer is Brian, who will be asking the questions.
+- Andrew, as a guest, is supposed to respond in natural language.
+- Andrew works for Contoso.
+- Keep the conversation engaging by moving back and forth between Brian and Andrew. 
+- The tone of the conversation should be professional. Avoid repeating their names.
+- Make sure to cover all the topics. 
+- Do not remove any topics.
+- Do not summarize!
+- Make sure to cover ALL topics!
+- Do not use slang and keep it professional.
+- Add also a short ending at the end of the podcast.
+- Do not include code or command fragments in the output.
+- Do not include http links in the output.
+- The podcast is named the "Microsoft Learn Podcast"
+- Do not add breaks to the podcast
+- The output should be about 12000 words.
+- Do not include exercises.
+- Do not mention 'the text' 
+- Do not mention 'the article'
+- When discussing bullet points, add a bit more context.
+- Every paragraph should be enclosed by a <voice> and </voice> element.
+- Remove MD (markdown syntax) from the output.
+- Before responding, transform the text to the Speech Syntheses Markup Language. The output should be XML.
+- Make sure that every paragraph is wrapped with a <voice> element. 
+- Brian should use the voice with name "en-US-BrianNeural"
+- Andrew should use the voice with name "en-US-AndrewNeural".
+- Finally, make sure there is the following element at the start: <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+End the XML document with the following element: </speak>
+---
+
+
+
+We're going to create a podcast, based on the below text.
+- Include an introduction into the topic where the both the interviewer and the guest introduce themselves.
+- The interviewer is Brian, who will be asking the questions.
+- Andrew, as a guest, is supposed to respond in natural language, with short sentences.
+- Andrew works for Contoso.
+- Keep the conversation engaging by moving back and forth between Brian and Andrew. 
+- The tone of the conversation should be friendly. Avoid repeating their names.
+- Make sure to cover all the topics from the text below. 
+- Do not remove any topics from the text.
+- Do not summarize!
+- Make sure to cover ALL topics!
+- Do not use slang and keep it professional.
+- Add also a short ending at the end of the podcast.
+- Do not include code or command fragments in the output.
+- Do not refer to the article, as we do not have access to it in the podcast.
+- The podcast is named the "Microsoft Learn Podcast"
+- Do not add breaks to the podcast
+- Every paragraph should be enclosed by a <voice> and </voice> element.
+- The output should be about 10000 words.
+- Do not include exercises.
+- When discussing bullet points, add a bit more context.
+- Before responding, transform the text to the Speech Syntheses Markup Language. The output should be XML.
+- Make sure that every paragraph is wrapped in a <voice> section. Brian should use the voice with name "en-US-BrianNeural". Andrew should use the voice with name "en-US-AndrewNeural".
+- Finally, make sure there is the following element at the start: <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+End the XML document with the following element: </speak>
+---

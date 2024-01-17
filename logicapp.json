@@ -1,0 +1,352 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Convert_text_to_speech_with_SSML_REST_API": {
+                "inputs": {
+                    "body": "@variables('transcript')",
+                    "headers": {
+                        "Content-Type": "application/ssml+xml",
+                        "Ocp-Apim-Subscription-Key": "[yousubscriptionkey]",
+                        "User-Agent": "LearnPodCast",
+                        "X-Microsoft-OutputFormat": "audio-24khz-96kbitrate-mono-mp3"
+                    },
+                    "method": "POST",
+                    "uri": "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1"
+                },
+                "runAfter": {
+                    "Initialize_variable_transcript": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            },
+            "Initialize_variable_podcastname": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "podcastname",
+                            "type": "string",
+                            "value": "@{substring(variables('url'), add(lastIndexOf(variables('url'), '/'), 1))}"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Initialize_variable_url_from_request_query_string": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Initialize_variable_prompt": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "prompt",
+                            "type": "string",
+                            "value": "We're going to create a podcast, based on the below text.\n- Include an introduction into the topic where the both the interviewer and the guest introduce themselves.\n- The interviewer is Brian, who will be asking the questions.\n- Andrew, as a guest, is supposed to respond in natural language, with short sentences.\n- Andrew works for Contoso.\n- Keep the conversation engaging by moving back and forth between Brian and Andrew. \n- The tone of the conversation should be friendly. Avoid repeating their names.\n- Make sure to cover all the topics from the text below. \n- Do not remove any topics from the text.\n- Do not summarize!\n- Make sure to cover ALL topics!\n- Do not use slang and keep it professional.\n- Add also a short ending at the end of the podcast.\n- Do not include code or command fragments in the output.\n- Do not refer to the article, as we do not have access to it in the podcast.\n- The podcast is named the \"Microsoft Learn Podcast\"\n- Do not add breaks to the podcast\n- Every paragraph should be enclosed by a <voice> and </voice> element.\n- The output should be about 10000 words.\n- Do not include exercises.\n- When discussing bullet points, add a bit more context.\n- Before responding, transform the text to the Speech Syntheses Markup Language. The output should be XML.\n- Make sure that every paragraph is wrapped in a <voice> section. Brian should use the voice with name \"en-US-BrianNeural\". Andrew should use the voice with name \"en-US-AndrewNeural\".\n- Finally, make sure there is the following element at the start: <speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" xmlns:emo=\"http://www.w3.org/2009/10/emotionml\" version=\"1.0\" xml:lang=\"en-US\">\nEnd the XML document with the following element: </speak>\n---\n@{body('Retrieve_learn_module_markdown')}"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Retrieve_learn_module_markdown": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Initialize_variable_transcript": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "transcript",
+                            "type": "string",
+                            "value": "@{body('Parse_JSON_GPT_output')?['choices'][0]['message']['content']}"
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Parse_JSON_GPT_output": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Initialize_variable_url_from_request_query_string": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "value": "@{if(endsWith(triggerOutputs()['queries']['url'], '/'), slice(triggerOutputs()['queries']['url'], 0,-1), triggerOutputs()['queries']['url'])}"
+                        }
+                    ]
+                },
+                "runAfter": {},
+                "type": "InitializeVariable"
+            },
+            "Parse_JSON_GPT_output": {
+                "inputs": {
+                    "content": "@body('Transform_to_podcast_transcript')",
+                    "schema": {
+                        "properties": {
+                            "choices": {
+                                "items": {
+                                    "properties": {
+                                        "content_filter_results": {
+                                            "properties": {
+                                                "hate": {
+                                                    "properties": {
+                                                        "filtered": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "severity": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "self_harm": {
+                                                    "properties": {
+                                                        "filtered": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "severity": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "sexual": {
+                                                    "properties": {
+                                                        "filtered": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "severity": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "violence": {
+                                                    "properties": {
+                                                        "filtered": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "severity": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "finish_reason": {
+                                            "type": "string"
+                                        },
+                                        "index": {
+                                            "type": "integer"
+                                        },
+                                        "message": {
+                                            "properties": {
+                                                "content": {
+                                                    "type": "string"
+                                                },
+                                                "role": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "required": [
+                                        "finish_reason",
+                                        "index",
+                                        "message",
+                                        "content_filter_results"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "created": {
+                                "type": "integer"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "model": {
+                                "type": "string"
+                            },
+                            "object": {
+                                "type": "string"
+                            },
+                            "prompt_filter_results": {
+                                "items": {
+                                    "properties": {
+                                        "content_filter_results": {
+                                            "properties": {
+                                                "hate": {
+                                                    "properties": {
+                                                        "filtered": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "severity": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "self_harm": {
+                                                    "properties": {
+                                                        "filtered": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "severity": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "sexual": {
+                                                    "properties": {
+                                                        "filtered": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "severity": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "violence": {
+                                                    "properties": {
+                                                        "filtered": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "severity": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "prompt_index": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "prompt_index",
+                                        "content_filter_results"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "usage": {
+                                "properties": {
+                                    "completion_tokens": {
+                                        "type": "integer"
+                                    },
+                                    "prompt_tokens": {
+                                        "type": "integer"
+                                    },
+                                    "total_tokens": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "Transform_to_podcast_transcript": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Response": {
+                "inputs": {
+                    "body": "@body('Convert_text_to_speech_with_SSML_REST_API')",
+                    "headers": {
+                        "Content-Disposition": "attachment; filename=\"@{variables('podcastname')}.mp3\"",
+                        "Content-Type": "audio/mpeg"
+                    },
+                    "statusCode": 200
+                },
+                "kind": "Http",
+                "runAfter": {
+                    "Convert_text_to_speech_with_SSML_REST_API": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Response"
+            },
+            "Retrieve_learn_module_markdown": {
+                "inputs": {
+                    "method": "GET",
+                    "uri": "https://learnmodules.azurewebsites.net/api/learnmodule_text?url=@{variables('url')}/"
+                },
+                "runAfter": {
+                    "Initialize_variable_podcastname": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            },
+            "Transform_to_podcast_transcript": {
+                "inputs": {
+                    "body": {
+                        "frequency_penalty": 0,
+                        "max_tokens": 10000,
+                        "messages": [
+                            {
+                                "content": "@{variables('prompt')}",
+                                "role": "system"
+                            },
+                            {
+                                "content": "Create the podcast.",
+                                "role": "user"
+                            }
+                        ],
+                        "presence_penalty": 0,
+                        "stop": null,
+                        "temperature": 0.1,
+                        "top_p": 0.95
+                    },
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "api-key": "[yourapikey]"
+                    },
+                    "method": "POST",
+                    "uri": "https://wedebolsaiopenai2.openai.azure.com/openai/deployments/gpt-35-turbo-16k/chat/completions?api-version=2023-07-01-preview"
+                },
+                "runAfter": {
+                    "Initialize_variable_prompt": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "method": "GET"
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "parameters": {}
+}

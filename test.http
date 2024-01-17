@@ -1,0 +1,23 @@
+GET http://localhost:7071/api/learnmodule_text?url=https://learn.microsoft.com/en-us/training/modules/work-delta-lake-tables-fabric/
+
+###
+
+GET http://localhost:7071/api/learnarticle_text?url=https://learn.microsoft.com/en-us/fabric/onelake/onelake-shortcuts
+
+###
+
+GET https://learnmodules.azurewebsites.net/api/learnmodule_text?url=https://learn.microsoft.com/en-us/training/modules/get-data/1-introduction
+
+
+###
+
+GET https://learnmodules.azurewebsites.net/api/learnarticle_text?url=https://learn.microsoft.com/en-us/fabric/onelake/onelake-api-parity
+
+###
+
+GET https://prod-23.eastus.logic.azure.com:443/workflows/1dd4e45a92de41fc8e0cf0044980577d/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rjYWaYRnIWe4qh84C-Qwg7gxyJ9O5gBJHmgCrYwDmRQ&url=https://learn.microsoft.com/en-us/training/modules/work-delta-lake-tables-fabric/
+
+
+
+https://prod-23.eastus.logic.azure.com/workflows/1dd4e45a92de41fc8e0cf0044980577d/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rjYWaYRnIWe4qh84C-Qwg7gxyJ9O5gBJHmgCrYwDmRQ&url=https://learn.microsoft.com/en-us/training/modules/work-delta-lake-tables-fabric/
+https://prod-23.eastus.logic.azure.com/workflows/1dd4e45a92de41fc8e0cf0044980577d/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rjYWaYRnIWe4qh84C-Qwg7gxyJ9O5gBJHmgCrYwDmRQ&url=https://learn.microsoft.com/en-us/training/modules/use-data-factory-pipelines-fabric/
