@@ -2,6 +2,51 @@ import azure.functions as func
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
+@app.route(route="learnmodule_units")
+def learnmodule_units(req: func.HttpRequest) -> func.HttpResponse:
+    import logging
+    logging.info('learnmodule_units: start')
+
+    import requests
+    import markdownify
+    import re
+    import json
+    from bs4 import BeautifulSoup
+    from urllib.parse import urljoin
+
+    url = req.params.get('url')
+    if not url:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            url = req_body.get('url')
+
+    logging.info(f'learnmodule_units: fetching url: {url}')
+
+    if url:
+        responseText = ""
+        responseModule = requests.get(url)
+        logging.info(f'learnmodule_units: GET HTTP status code: {responseModule.status_code}')
+
+        if responseModule.status_code == 200:
+            logging.info(f'learnmodule_units: parsing content')
+            contentModule = responseModule.text
+            soupMain = BeautifulSoup(contentModule, "html.parser")
+
+            logging.info(f'learnmodule_units: finding all links')
+            links = soupMain.find_all(class_="unit-title")
+
+            # Remove links containing "exercise", "knowledge-check", or "summary"
+            links = [link for link in links if not any(keyword in link["href"] for keyword in ["exercise", "knowledge-check", "summary"])]
+
+            absolute_urls = [urljoin(url, link["href"]) for link in links]
+            response_data = {"absolute_urls": absolute_urls}
+            response_json = json.dumps(response_data)
+
+            return func.HttpResponse(response_json, status_code=200, mimetype="application/json")
+
 @app.route(route="learnmodule_text")
 def learnmodule_text(req: func.HttpRequest) -> func.HttpResponse:
     import logging

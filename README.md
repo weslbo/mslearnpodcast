@@ -16,7 +16,6 @@ https://prod-23.eastus.logic.azure.com/workflows/1dd4e45a92de41fc8e0cf0044980577
 
 ![architecture](./architecture.excalidraw.png)
 
-You can find some example output in the [az-204-podcast](./az-204-podcast/) folder
 
 ## Prerequisites
 
