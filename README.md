@@ -6,12 +6,17 @@ All of the content is generated using Azure OpenAI and translated to speech usin
 
 There is a logic app, which will perform the processing. It accepts one input: the URL of a Learn Module (main)
 
+```txt
 https://prod-23.eastus.logic.azure.com/workflows/1dd4e45a92de41fc8e0cf0044980577d/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rjYWaYRnIWe4qh84C-Qwg7gxyJ9O5gBJHmgCrYwDmRQ&url=https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-app-service/
-
+```
 
 - The logic app will take the learn module URL (main page) and extract all the unit contents from it. It calls an Azure Function, which uses beatifullsoup to parse the contents.
 - A prompt is send to Azure OpenAI to create the podcast. The prompt will contain the learn module output and produces a transcript that is immediatly formatted using the Speech Syntheses Markup Language
 - The resulting output is transformed using the Speech SDK into an mp3 file, which is send as an output file from the podcast.
+
+![architecture](./architecture.excalidraw.png)
+
+You can find some example output in the [az-204-podcast](./az-204-podcast/) folder
 
 ## Prerequisites
 
